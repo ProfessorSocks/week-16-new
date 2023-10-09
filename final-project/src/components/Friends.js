@@ -77,7 +77,7 @@ function Friends() {
     <div>
       <AddFriendForm addNewFriend={addNewFriend}/>
       {data.map((friend) => (
-        <FriendPost key={friend.id} name={friend.name} image={friend.image} birthday={friend.birthday} age={friend.age} romance={friend.romance} likes={friend.likes} dislikes={friend.dislikes} />
+        <FriendPost friend={friend} getFriends={getFriends} />
       ))}
 
     </div>

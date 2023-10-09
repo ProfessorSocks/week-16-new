@@ -11,6 +11,30 @@ function AddFriendForm(props) {
 
   const [name, setName] = useState('')
   const [birthday, setBirthday] = useState('')
+  const [age, setAge] = useState('')
+
+  function handleChange(e){
+    if(e.target.name === 'name'){
+      setName(e.target.value)
+      console.log(name)
+    } else if (e.target.name === 'birthday'){
+      setBirthday(e.target.value)
+      console.log(birthday)
+    }else if (e.target.name === 'age'){
+      setAge(e.target.value)
+      console.log(age)
+    }
+  }
+
+  function handleClick(e){
+    const newFriend = {
+      name: name,
+      birthday: birthday,
+      age: age,
+    }
+    console.log(newFriend)
+    //props.addNewFriend(newFriend)
+  }
 
 
 
@@ -19,7 +43,9 @@ function AddFriendForm(props) {
       <form id='friendform'>       
         <input type='text' placeholder='name' name='name' id='name' onChange={handleChange} />
         <input type='date' placeholder='birthday' name='birthday' id='birthday' onChange={handleChange} />
+        <input type='text' placeholder='age' name='age' id='age' onChange={handleChange} />
         <input type='submit' value='submit' onClick={handleClick}  />
+        
       </form>
     </div>
   )
@@ -30,24 +56,7 @@ function AddFriendForm(props) {
     // or app.js)
 //use 
 
-  function handleChange(e){
-    if(e.target.name === 'name'){
-      setName(e.target.value)
-      console.log(name)
-    } else if (e.target.name === 'birthday'){
-      setBirthday(e.target.value)
-      console.log(birthday)
-    }
-  }
 
-  function handleClick(e){
-    const newFriend = {
-      name: name,
-      birthday: birthday,
-    }
-
-    props.addNewFriend(newFriend)
-  }
 
 
 };
