@@ -7,6 +7,8 @@ import Dislikes from './Dislikes'
 
 function FriendPost(props) {
 
+
+  const { data } = props;
   //delete function
     //need to grab url
     //need to grab id
@@ -14,8 +16,26 @@ function FriendPost(props) {
 
   function handleDelete(e){
     let friend = e.target.friend
-    props.deleteFriend(friend)
+    console.log(friend)
+    deleteFriend(friend)
   }
+
+  
+  
+  const deleteFriend = async (key) => {
+    try {
+      const resp = await fetch(`${data}/${key}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      // handle response accordingly
+    } catch (e) {
+      console.log(`deleteFriend had an error: ${e}`)
+    }
+  };
+
 
 
   return (
@@ -38,7 +58,7 @@ function FriendPost(props) {
           ))}
         </div>
       </div>
-      <button id={`${props.id}`} friend={props.id} onClick={handleDelete}>delete</button>
+      <button id={`${props.key}`} friend={props.key} onClick={() => deleteFriend(props.key)}>delete</button>
     </div>
     
   )
