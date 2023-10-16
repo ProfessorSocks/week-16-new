@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import React, { useState, useEffect } from 'react'
+import { Button } from 'reactstrap';
 
 function AddFriendForm(props) {
 
@@ -9,44 +10,54 @@ function AddFriendForm(props) {
 //takes data from friends.js and passes it down to here
   const { data } = props;
 
-  const [name, setName] = useState('')
-  const [birthday, setBirthday] = useState('')
-  const [age, setAge] = useState('')
+  const [name, setName] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [age, setAge] = useState('');
+  const [likes, setLikes] = useState([]);
+  const [dislikes, setDislikes] = useState([]);
 
-  function handleChange(e){
-    if(e.target.name === 'name'){
-      setName(e.target.value)
-      console.log(name)
-    } else if (e.target.name === 'birthday'){
-      setBirthday(e.target.value)
-      console.log(birthday)
-    }else if (e.target.name === 'age'){
-      setAge(e.target.value)
-      console.log(age)
-    }
-  }
+  console.log(name, birthday, age)
+
+  // function handleChange(e){
+  //   if(e.target.name === 'name'){
+  //     setName(e.target.value)
+  //     console.log(name)
+  //   } else if (e.target.name === 'birthday'){
+  //     setBirthday(e.target.value)
+  //     console.log(birthday)
+  //   }else if (e.target.name === 'age'){
+  //     setAge(e.target.value)
+  //     console.log(age)
+  //   }
+  // }
 
   function handleClick(e){
+   
     const newFriend = {
       name: name,
       birthday: birthday,
       age: age,
+      likes: likes,
+      dislikes: dislikes,
     }
     console.log(newFriend)
-    //props.addNewFriend(newFriend)
+
+    props.addNewFriend(newFriend)
   }
 
 
 
   return (
     <div>
-      <form id='friendform'>       
-        <input type='text' placeholder='name' name='name' id='name' onChange={handleChange} />
-        <input type='date' placeholder='birthday' name='birthday' id='birthday' onChange={handleChange} />
-        <input type='text' placeholder='age' name='age' id='age' onChange={handleChange} />
-        <input type='submit' value='submit' onClick={handleClick}  />
-        
+      <form id='friendform' onSubmit={handleClick} method=''>       
+        <input className='inputfield' type='text' placeholder='name' name='name' id='name' onChange={(e) => setName(e.target.value)} />
+        <input className='inputfield' type='date' placeholder='birthday' name='birthday' id='birthday' onChange={(e) => setBirthday(e.target.value)} />
+        <input className='inputfield' type='text' placeholder='age' name='age' id='age' onChange={(e) => setAge(e.target.value)} />
+        <br></br>
+        <input className='inputfield' type='text' placeholder='likes' name='likes' id='likes' onChange={(e) => setLikes(e.target.value)} />
+        <input className='inputfield' type='text' placeholder='dislikes' name='dislikes' id='dislikes' onChange={(e) => setDislikes(e.target.value)} />
       </form>
+      <Button onClick={handleClick}>submit</Button>
     </div>
   )
 

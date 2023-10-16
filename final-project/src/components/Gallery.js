@@ -26,7 +26,6 @@ function Gallery() {
 //in {} map out gallerypost using props look at week 15 async awaits
   return (
     <div>
-      <AddGalleryForm/>
       {data.map((image)=> (
         <GalleryPost image={image.image} caption={image.caption}  />
       ))}

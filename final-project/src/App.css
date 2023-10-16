@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: blanchedalmond;
+  font-family: 'fancyfont', sans-serif;
 }
 
 .App-logo {
@@ -51,3 +53,35 @@
   padding: 40px;
   justify-content: center;
 }
+
+.friendpage{
+  background-color: blanchedalmond;
+  height: 150%;
+}
+
+.friend{
+  height: 500px;
+
+}
+
+.inputfield{
+  border: 5px;
+  border-color: chocolate;
+  border-style: solid;
+}
+
+.aboutpage{
+  height: 600px;
+}
+
+.newbutton{
+  color: chocolate;
+  border-color: ghostwhite;
+}
+
+@font-face {
+  font-family: 'fancyfont';
+  src: url('/src/fonts/Pacifico/Pacifico-Regular.ttf') format('truetype');
+  /* You can add more formats for broader browser support if needed */
+}
+

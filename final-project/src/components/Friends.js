@@ -74,7 +74,7 @@ function Friends() {
 
 
   return (
-    <div>
+    <div className='friendpage'>
       <AddFriendForm addNewFriend={addNewFriend}/>
       {data.map((friend) => (
         <FriendPost friend={friend} getFriends={getFriends} />

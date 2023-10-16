@@ -1,6 +1,7 @@
 import React from 'react'
 import Likes from './Likes'
 import Dislikes from './Dislikes'
+import { Button } from 'reactstrap'
 
 
 
@@ -40,9 +41,9 @@ console.log(friend)
   };
 
 
-
+// need to add likes and dislike add/delete
   return (
-    <div>
+    <div className='friend'>
       <h2>{friend.name}</h2>
       <img src={friend.image}></img>
       <div className='friendbox'>
@@ -61,7 +62,7 @@ console.log(friend)
           ))}
         </div>
       </div>
-      <button id={`${friend.key}`}  onClick={() => deleteFriend(friend.id)}>delete</button>
+      <Button id={`${friend.key}`}  onClick={() => deleteFriend(friend.id)}>delete</Button>
     </div>
     
   )

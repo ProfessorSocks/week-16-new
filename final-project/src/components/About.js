@@ -1,11 +1,15 @@
 import React from 'react'
 import { Button } from 'reactstrap'
+import ContactMe from './ContactMe'
 
 function About() {
   return (
-    <div>
+    <div className='aboutpage'>
       <h2>Hello I am Camille West</h2>
-      <Button>Random button</Button>
+
+      <h3>Contact me</h3>
+      <ContactMe/>
+      
     </div>
   )
 }

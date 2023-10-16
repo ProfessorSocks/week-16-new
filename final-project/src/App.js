@@ -8,6 +8,7 @@ import Gallery from './components/Gallery';
 import Friends from './components/Friends';
 
 function App() {
+  
   return (
     <div className="App">
       <Navbar/>
