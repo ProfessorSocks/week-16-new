@@ -32,17 +32,27 @@ function AddFriendForm(props) {
   // }
 
   function handleClick(e){
-   
+    
+    const newLikes = likes.split(',');
+    const newDislikes = dislikes.split(',')
+    console.log(newDislikes, newLikes)
+
     const newFriend = {
       name: name,
       birthday: birthday,
       age: age,
-      likes: likes,
-      dislikes: dislikes,
+      likes: newLikes,
+      dislikes: newDislikes,
     }
     console.log(newFriend)
 
     props.addNewFriend(newFriend)
+    
+    setName('');
+    setBirthday('');
+    setAge('');
+    setLikes([]);
+    setDislikes([]);
   }
 
 
@@ -50,12 +60,12 @@ function AddFriendForm(props) {
   return (
     <div>
       <form id='friendform' onSubmit={handleClick} method=''>       
-        <input className='inputfield' type='text' placeholder='name' name='name' id='name' onChange={(e) => setName(e.target.value)} />
-        <input className='inputfield' type='date' placeholder='birthday' name='birthday' id='birthday' onChange={(e) => setBirthday(e.target.value)} />
-        <input className='inputfield' type='text' placeholder='age' name='age' id='age' onChange={(e) => setAge(e.target.value)} />
+        <input className='inputfield' type='text' placeholder='name' name='name' id='name' onChange={(e) => setName(e.target.value)} value={name} />
+        <input className='inputfield' type='date' placeholder='birthday' name='birthday' id='birthday' onChange={(e) => setBirthday(e.target.value)} value={birthday} />
+        <input className='inputfield' type='text' placeholder='age' name='age' id='age' onChange={(e) => setAge(e.target.value)} value={age} />
         <br></br>
-        <input className='inputfield' type='text' placeholder='likes' name='likes' id='likes' onChange={(e) => setLikes(e.target.value)} />
-        <input className='inputfield' type='text' placeholder='dislikes' name='dislikes' id='dislikes' onChange={(e) => setDislikes(e.target.value)} />
+        <input className='inputfield' type='text' placeholder='likes(separate by ,)' name='likes' id='likes' onChange={(e) => setLikes(e.target.value)} value={likes} />
+        <input className='inputfield' type='text' placeholder='dislikes (separate by ,)' name='dislikes' id='dislikes' onChange={(e) => setDislikes(e.target.value)} value={dislikes} />
       </form>
       <Button onClick={handleClick}>submit</Button>
     </div>

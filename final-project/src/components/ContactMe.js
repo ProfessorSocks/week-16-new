@@ -11,6 +11,8 @@ function ContactMe() {
 
 
     const handleSubmit = async () => {
+
+        
         const newClient = {
             name: name,
             email: email,

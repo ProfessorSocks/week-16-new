@@ -39,8 +39,8 @@ function Friends() {
         body: JSON.stringify(friend),
       });
       if (resp.ok) {
-        const data = await resp.json();
-        setData([...data, data]); // Update the local data state with the new friend from the API
+        const newdata = await resp.json();
+        setData([...data, newdata]); // Update the local data state with the new friend from the API
       }
     } catch (e) {
       console.log('addNewFriend had an error:', e);
